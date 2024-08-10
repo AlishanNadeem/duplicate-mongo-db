@@ -1,13 +1,19 @@
 const { MongoClient } = require('mongodb');
 
-async function duplicateDatabase(uri, sourceDb, targetDb) {
-  const client = new MongoClient(uri);
+async function duplicateDatabase(options) {
+
+  const { sourceURI, targetURI, sourceDBName, targetDBName } = options
+
+  const sourceClient = new MongoClient(sourceURI);
+  const targetClient = new MongoClient(targetURI);
 
   try {
-    await client.connect();
+    
+    await sourceClient.connect();
+    await targetClient.connect();
 
-    const source = client.db(sourceDb);
-    const target = client.db(targetDb);
+    const source = sourceClient.db(sourceDBName);
+    const target = targetClient.db(targetDBName);
 
     const collections = await source.listCollections().toArray();
 
@@ -18,7 +24,8 @@ async function duplicateDatabase(uri, sourceDb, targetDb) {
       }
     }
   } finally {
-    await client.close();
+    await sourceClient.close();
+    await targetClient.close();
   }
 }
 
