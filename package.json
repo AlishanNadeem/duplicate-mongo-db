@@ -1,8 +1,25 @@
 {
   "name": "duplicate-mongo-db",
   "version": "1.0.0",
-  "description": "",
+  "description": "A package for MongoDB duplication",
   "main": "index.js",
+  "keywords": [
+    "mongodb",
+    "duplication",
+    "data-copy",
+    "database-clone",
+    "mongo-duplicate",
+    "mongodb-tools",
+    "data-replication",
+    "mongodb-utilities",
+    "mongo-clone",
+    "mongo-replicate",
+    "data-management",
+    "mongo-helpers",
+    "data-backup",
+    "npm-package",
+    "mongodb-automation"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
